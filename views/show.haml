@@ -1,0 +1,9 @@
+%h1= "Showing saves from #{params[:key].to_s}"
+- if @savefile.nil? || @savefile.empty?
+  %p= "No saves yet..."
+- else
+  - @savefile.each do |save|
+    .content
+      %p.user= "Saved by #{save[:user]}"
+      %p.time= "Saved at #{save[:time]}"
+      %pre.save= save[:content]

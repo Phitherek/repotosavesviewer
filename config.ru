@@ -1,0 +1,2 @@
+require './repotosv'
+run RepotoSavesViewer

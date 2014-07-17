@@ -1,0 +1,9 @@
+%h1 Welcome to Repoto Saves Viewer
+- if @config.empty?
+  %p No paths to savefiles yet...
+- else
+  %h2 Savefiles:
+  %ul
+    - @config.keys.each do |key|
+      %li
+        %a{:href => "/#{key.to_s}"}= key.to_s
