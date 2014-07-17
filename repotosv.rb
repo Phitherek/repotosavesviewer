@@ -21,7 +21,11 @@ class RepotoSavesViewer < Sinatra::Base
         if @config[params[:key].to_sym].nil?
             halt 404, "Configuration for this key not found"
         else
-            @savefile = YAML.load_file(@config[params[:key].to_sym][:path])
+            if File.exists?(@config[params[:key].to_sym][:path])
+                @savefile = YAML.load_file(@config[params[:key].to_sym][:path])
+            else
+                @savefile = []
+            end
             haml :show
         end
     end
